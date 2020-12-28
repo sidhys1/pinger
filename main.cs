@@ -14,7 +14,7 @@ namespace pinger
             Console.WriteLine("Validating whitelist integrity..");
 
             string userName = Environment.UserName;
-            string authfile = $@"C:\Users\{userName}\spiroauthorization.cpp";
+            string authfile = $@"C:\Users\{userName}\auth.txt";
             bool exists = File.Exists(authfile);
 
 
@@ -88,7 +88,7 @@ namespace pinger
                 Console.Write("Please enter your authorization token: ");
                 string authinput = Console.ReadLine();
                 File.WriteAllText(authfile, authinput);
-                Console.WriteLine("Attempted to authorize, please relaunch  Pinger.");
+                Console.WriteLine("Attempted to authorize, please relaunch Pinger.");
             }
             
                         Console.ReadLine();
