@@ -11,31 +11,11 @@ namespace pinger
     {
         public static void Main(string[] args)
         {
-            Console.WriteLine("Validating whitelist integrity..");
-
-            string userName = Environment.UserName;
-            string authfile = $@"C:\Users\{userName}\auth.txt";
-            bool exists = File.Exists(authfile);
-
-
-            if (exists == true)
-            {
-                WebClient wc = new WebClient();
-                string receive = wc.DownloadString("im not leaking this lmao");
-                StreamReader sr = new StreamReader($@"C:\Users\{userName}\auth.txt");
-                string line = sr.ReadLine();
-
-                if (receive.Contains(line))
-                {
-
-                 
-
+                  
+            
                     string who, x, data;
                     int y, z, timeout;
-    
-
-                    Console.WriteLine("Loading assets..");
-
+   
                     Console.Write("Please provide a IP to ping: ");
 
                     who = Console.ReadLine();
@@ -45,9 +25,6 @@ namespace pinger
                     x = Console.ReadLine();
 
                     y = Int32.Parse(x);
-
-
-                    Console.WriteLine(" ");
 
                     for (z = 0; z < y; ++z)
                     {
@@ -59,7 +36,7 @@ namespace pinger
 
                         pingSender.PingCompleted += new PingCompletedEventHandler(PingCompletedCallback);
 
-                        data = "bruhhhhhhhhhhhhhhhhhhhhhhhhhhhhh";
+                        data = "12345678912345678912345678912345";
                         byte[] buffer = Encoding.ASCII.GetBytes(data);
 
                         timeout = 12000;
@@ -75,22 +52,6 @@ namespace pinger
 
 
                     }
-                }
-                else
-                {
-                    Console.WriteLine("Failed to validate whitelist integrety.");
-                    string awaitleave = Console.ReadLine();
-                }
-            }
-            else
-            {
-                Console.WriteLine("Could not find data to read. Starting authorization process.");
-                Console.Write("Please enter your authorization token: ");
-                string authinput = Console.ReadLine();
-                File.WriteAllText(authfile, authinput);
-                Console.WriteLine("Attempted to authorize, please relaunch Pinger.");
-            }
-            
                         Console.ReadLine();
         }
 
