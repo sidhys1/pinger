@@ -20,7 +20,7 @@ namespace pinger
 
                     who = Console.ReadLine();
 
-                    Console.Write("\n How many times should I ping that ip: ");
+                    Console.Write("\n how many times should i ping the ip: ");
 
                     x = Console.ReadLine();
 
